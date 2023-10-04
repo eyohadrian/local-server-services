@@ -1,6 +1,6 @@
 # Makefile
 
-.PHONY: clean build run
+.PHONY: clean build run start
 
 clean:
 	-docker stop reverse-proxy-container
@@ -13,3 +13,5 @@ build:
 run: build
 	docker run -d -p 80:80 --name reverse-proxy-container --network="host" reverse-proxy
 
+start:
+	docker start reverse-proxy-container
